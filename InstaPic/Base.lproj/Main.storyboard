@@ -47,7 +47,7 @@
                                 <rect key="frame" x="77" y="151" width="166" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qlR-wx-75n">
                                 <rect key="frame" x="133" y="238" width="55" height="30"/>
@@ -66,7 +66,7 @@
                     <connections>
                         <outlet property="password" destination="hsT-uF-HiU" id="ggG-KT-6Rx"/>
                         <outlet property="username" destination="9md-kq-z2U" id="pVL-35-w9R"/>
-                        <segue destination="vXZ-lx-hvc" kind="push" identifier="takePicture" id="FMl-bx-8Fh"/>
+                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="takePicture" id="FMl-bx-8Fh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gSu-Vo-0oQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -101,7 +101,7 @@
                                 <rect key="frame" x="77" y="160" width="166" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -110,7 +110,7 @@
                     <connections>
                         <outlet property="password" destination="8V7-iF-b2R" id="o0D-Oc-WES"/>
                         <outlet property="username" destination="WNr-Qg-DFX" id="mMY-qO-yrK"/>
-                        <segue destination="vXZ-lx-hvc" kind="push" identifier="takePicture" id="xTr-NF-3qd"/>
+                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="takePicture" id="xTr-NF-3qd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qfj-KU-fgY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -180,6 +180,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="xTr-NF-3qd"/>
+        <segue reference="FMl-bx-8Fh"/>
     </inferredMetricsTieBreakers>
 </document>

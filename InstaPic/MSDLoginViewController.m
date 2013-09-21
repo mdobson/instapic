@@ -7,6 +7,7 @@
 //
 
 #import "MSDLoginViewController.h"
+#import "MSDSharedClient.h"
 
 @interface MSDLoginViewController ()
 
@@ -36,5 +37,17 @@
 }
 
 - (IBAction)login:(id)sender {
+    NSString *username = self.username.text;
+    NSString *password = self.password.text;
+    
+    [[MSDSharedClient sharedClient] logInUser:username
+                                     password:password
+                            completionHandler:^(ApigeeClientResponse*response){
+                                if (response.transactionState == kApigeeClientResponseSuccess) {
+                                    [self performSegueWithIdentifier:@"takePicture" sender:self];
+                                } else {
+                                    NSLog(@"error");
+                                }
+                            }];
 }
 @end

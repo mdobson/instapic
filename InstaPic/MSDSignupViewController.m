@@ -7,6 +7,7 @@
 //
 
 #import "MSDSignupViewController.h"
+#import "MSDSharedClient.h"
 
 @interface MSDSignupViewController ()
 
@@ -36,5 +37,19 @@
 }
 
 - (IBAction)signup:(id)sender {
+    NSString *username = self.username.text;
+    NSString *password = self.password.text;
+    [[MSDSharedClient sharedClient] addUser:username
+                                      email:username
+                                       name:username
+                                   password:password
+                          completionHandler:^(ApigeeClientResponse *response){
+                              if (response.transactionState == kApigeeClientResponseSuccess) {
+                                  [self performSegueWithIdentifier:@"takePicture" sender:self];
+                              } else {
+                                  NSLog(@"error");
+                              }
+                          }];
 }
+
 @end
