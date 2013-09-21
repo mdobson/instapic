@@ -12,5 +12,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *username;
 @property (strong, nonatomic) IBOutlet UITextField *password;
 - (IBAction)signup:(id)sender;
+@property (strong, nonatomic) IBOutlet UITextField *email;
 
 @end

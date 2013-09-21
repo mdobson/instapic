@@ -39,8 +39,9 @@
 - (IBAction)signup:(id)sender {
     NSString *username = self.username.text;
     NSString *password = self.password.text;
+    NSString *email = self.email.text;
     [[MSDSharedClient sharedClient] addUser:username
-                                      email:username
+                                      email:email
                                        name:username
                                    password:password
                           completionHandler:^(ApigeeClientResponse *response){

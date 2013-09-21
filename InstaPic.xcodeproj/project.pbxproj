@@ -26,6 +26,7 @@
 		6354AF2D17EE41A500E18DDB /* MSDSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6354AF2C17EE41A500E18DDB /* MSDSignupViewController.m */; };
 		635F985F17EE6113003BD1EE /* MSDFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 635F985E17EE6113003BD1EE /* MSDFeedViewController.m */; };
 		635F986217EE6123003BD1EE /* MSDNearMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 635F986117EE6123003BD1EE /* MSDNearMeViewController.m */; };
+		635F986517EE6769003BD1EE /* MSDFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 635F986417EE6769003BD1EE /* MSDFollowViewController.m */; };
 		63D39F8E17EE2C5500406966 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D39F8A17EE2C5500406966 /* CoreLocation.framework */; };
 		63D39F8F17EE2C5500406966 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D39F8B17EE2C5500406966 /* CoreTelephony.framework */; };
 		63D39F9017EE2C5500406966 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D39F8C17EE2C5500406966 /* Security.framework */; };
@@ -73,6 +74,8 @@
 		635F985E17EE6113003BD1EE /* MSDFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDFeedViewController.m; sourceTree = "<group>"; };
 		635F986017EE6123003BD1EE /* MSDNearMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDNearMeViewController.h; sourceTree = "<group>"; };
 		635F986117EE6123003BD1EE /* MSDNearMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDNearMeViewController.m; sourceTree = "<group>"; };
+		635F986317EE6769003BD1EE /* MSDFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDFollowViewController.h; sourceTree = "<group>"; };
+		635F986417EE6769003BD1EE /* MSDFollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDFollowViewController.m; sourceTree = "<group>"; };
 		63D39F8A17EE2C5500406966 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		63D39F8B17EE2C5500406966 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		63D39F8C17EE2C5500406966 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -164,6 +167,8 @@
 				635F985E17EE6113003BD1EE /* MSDFeedViewController.m */,
 				635F986017EE6123003BD1EE /* MSDNearMeViewController.h */,
 				635F986117EE6123003BD1EE /* MSDNearMeViewController.m */,
+				635F986317EE6769003BD1EE /* MSDFollowViewController.h */,
+				635F986417EE6769003BD1EE /* MSDFollowViewController.m */,
 			);
 			path = InstaPic;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				633D552017EE1AF50068B876 /* main.m in Sources */,
+				635F986517EE6769003BD1EE /* MSDFollowViewController.m in Sources */,
 				6354AF2D17EE41A500E18DDB /* MSDSignupViewController.m in Sources */,
 				633D552417EE1AF50068B876 /* MSDAppDelegate.m in Sources */,
 				6354AF2717EE40C300E18DDB /* MSDSharedClient.m in Sources */,
