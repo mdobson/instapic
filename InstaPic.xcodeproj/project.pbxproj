@@ -24,6 +24,8 @@
 		6354AF2717EE40C300E18DDB /* MSDSharedClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6354AF2617EE40C300E18DDB /* MSDSharedClient.m */; };
 		6354AF2A17EE419B00E18DDB /* MSDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6354AF2917EE419B00E18DDB /* MSDLoginViewController.m */; };
 		6354AF2D17EE41A500E18DDB /* MSDSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6354AF2C17EE41A500E18DDB /* MSDSignupViewController.m */; };
+		635F985F17EE6113003BD1EE /* MSDFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 635F985E17EE6113003BD1EE /* MSDFeedViewController.m */; };
+		635F986217EE6123003BD1EE /* MSDNearMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 635F986117EE6123003BD1EE /* MSDNearMeViewController.m */; };
 		63D39F8E17EE2C5500406966 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D39F8A17EE2C5500406966 /* CoreLocation.framework */; };
 		63D39F8F17EE2C5500406966 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D39F8B17EE2C5500406966 /* CoreTelephony.framework */; };
 		63D39F9017EE2C5500406966 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D39F8C17EE2C5500406966 /* Security.framework */; };
@@ -67,6 +69,10 @@
 		6354AF2917EE419B00E18DDB /* MSDLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDLoginViewController.m; sourceTree = "<group>"; };
 		6354AF2B17EE41A500E18DDB /* MSDSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDSignupViewController.h; sourceTree = "<group>"; };
 		6354AF2C17EE41A500E18DDB /* MSDSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDSignupViewController.m; sourceTree = "<group>"; };
+		635F985D17EE6113003BD1EE /* MSDFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDFeedViewController.h; sourceTree = "<group>"; };
+		635F985E17EE6113003BD1EE /* MSDFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDFeedViewController.m; sourceTree = "<group>"; };
+		635F986017EE6123003BD1EE /* MSDNearMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDNearMeViewController.h; sourceTree = "<group>"; };
+		635F986117EE6123003BD1EE /* MSDNearMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDNearMeViewController.m; sourceTree = "<group>"; };
 		63D39F8A17EE2C5500406966 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		63D39F8B17EE2C5500406966 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		63D39F8C17EE2C5500406966 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -154,6 +160,10 @@
 				6354AF2917EE419B00E18DDB /* MSDLoginViewController.m */,
 				6354AF2B17EE41A500E18DDB /* MSDSignupViewController.h */,
 				6354AF2C17EE41A500E18DDB /* MSDSignupViewController.m */,
+				635F985D17EE6113003BD1EE /* MSDFeedViewController.h */,
+				635F985E17EE6113003BD1EE /* MSDFeedViewController.m */,
+				635F986017EE6123003BD1EE /* MSDNearMeViewController.h */,
+				635F986117EE6123003BD1EE /* MSDNearMeViewController.m */,
 			);
 			path = InstaPic;
 			sourceTree = "<group>";
@@ -290,7 +300,9 @@
 				633D552417EE1AF50068B876 /* MSDAppDelegate.m in Sources */,
 				6354AF2717EE40C300E18DDB /* MSDSharedClient.m in Sources */,
 				633D552A17EE1AF50068B876 /* MSDViewController.m in Sources */,
+				635F985F17EE6113003BD1EE /* MSDFeedViewController.m in Sources */,
 				6354AF2A17EE419B00E18DDB /* MSDLoginViewController.m in Sources */,
+				635F986217EE6123003BD1EE /* MSDNearMeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
