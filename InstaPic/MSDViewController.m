@@ -7,6 +7,7 @@
 //
 
 #import "MSDViewController.h"
+#import "MSDSharedClient.h"
 #import <ApigeeiOSSDK/ApigeeDataClient.h>
 
 @interface MSDViewController ()
@@ -18,7 +19,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.client = [[ApigeeClient alloc] initWithOrganizationId:@"mdobson" applicationId:@"sandbox"];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -47,7 +47,7 @@
 
 - (IBAction)uploadPicture:(id)sender {
     NSDictionary *data = @{@"type":@"assets", @"name":@"test.png", @"owner":@"95062f5a-ff60-11e2-b7d9-ad76f240f538", @"path":@"/test"};
-    [[[self client] dataClient] createEntity:data completionHandler:^(ApigeeClientResponse* response){
+    [[MSDSharedClient sharedClient] createEntity:data completionHandler:^(ApigeeClientResponse* response){
         if(response.transactionState == kApigeeClientResponseSuccess) {
             NSDictionary *entity = response.response[@"entities"][0];
             NSString *uuid = entity[@"uuid"];

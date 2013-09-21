@@ -7,12 +7,14 @@
 //
 
 #import "MSDAppDelegate.h"
+#import "MSDSharedClient.h"
 
 @implementation MSDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [MSDSharedClient initWithOrg:@"mdobson" andApp:@"instapic-dev"];
     return YES;
 }
 							
