@@ -40,6 +40,24 @@
     return cell;
 }
 
+-(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *userDict = self.users[indexPath.row];
+    NSString *username = userDict[@"username"];
+    ApigeeUser *user = [[MSDSharedClient sharedClient] getLoggedInUser];
+    [[MSDSharedClient sharedClient] connectEntities:@"users"
+                                        connectorID:user.username
+                                     connectionType:@"following"
+                                      connecteeType:@"users"
+                                        connecteeID:username
+                                  completionHandler:^(ApigeeClientResponse *response){
+                                      if (response.transactionState == kApigeeClientResponseSuccess) {
+                                          NSLog(@"good");
+                                      } else {
+                                          NSLog(@"Bad");
+                                      }
+                                  }];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

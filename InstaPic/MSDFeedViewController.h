@@ -10,4 +10,7 @@
 
 @interface MSDFeedViewController : UIViewController
 
+@property (nonatomic, retain) NSArray *activities;
+@property (nonatomic, retain) IBOutlet UITableView *table;
+
 @end

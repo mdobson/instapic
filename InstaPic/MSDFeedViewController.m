@@ -7,6 +7,7 @@
 //
 
 #import "MSDFeedViewController.h"
+#import "MSDSharedClient.h"
 
 @interface MSDFeedViewController ()
 
@@ -28,17 +29,31 @@
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return self.activities.count;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    NSDictionary *dict = self.activities[indexPath.row];
+    cell.textLabel.text = dict[@"content"];
     return cell;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    ApigeeUser *user = [[MSDSharedClient sharedClient] getLoggedInUser];
+    [[MSDSharedClient sharedClient] getActivityFeedForUser:user.username
+                                                   query:nil
+                                       completionHandler:^(ApigeeClientResponse *response){
+                                           if (response.transactionState == kApigeeClientResponseSuccess) {
+                                               self.activities = response.response[@"entities"];
+                                               NSLog(@"%@", response.response[@"entities"]);
+                                               [self.table reloadData];
+                                           } else {
+                                               NSLog(@"Can't get feed.");
+                                           }
+                                       }];
 	// Do any additional setup after loading the view.
 }
 
