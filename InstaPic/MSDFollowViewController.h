@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ApigeeiOSSDK/ApigeeCollection.h>
 
-@interface MSDFollowViewController : UIViewController
+@interface MSDFollowViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic, strong) NSArray *users;
+@property (nonatomic, strong) IBOutlet UITableView *table;
 
 @end

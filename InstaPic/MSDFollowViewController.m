@@ -7,6 +7,9 @@
 //
 
 #import "MSDFollowViewController.h"
+#import "MSDSharedClient.h"
+#import <ApigeeiOSSDK/ApigeeUser.h>
+#import <ApigeeiOSSDK/ApigeeQuery.h>
 
 @interface MSDFollowViewController ()
 
@@ -18,14 +21,42 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
+}
+
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.users.count;
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    NSDictionary *userDict = self.users[indexPath.row];
+    cell.textLabel.text = userDict[@"username"];
+    return cell;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Custom initialization
+    ApigeeUser *user = [[MSDSharedClient sharedClient] getLoggedInUser];
+    ApigeeQuery *query = [[ApigeeQuery alloc] init];
+    NSString *queryString = [NSString stringWithFormat:@"WHERE NOT username='%@'", user.username];
+    [query addRequirement:queryString];
+    [[MSDSharedClient sharedClient] getEntities:@"users" query:query completionHandler:^(ApigeeClientResponse *response){
+        
+        if (response.transactionState == kApigeeClientResponseSuccess) {
+            self.users = response.response[@"entities"];
+            [[self table] reloadData];
+        } else {
+            NSLog(@"error");
+        }
+    }];
 	// Do any additional setup after loading the view.
 }
 
