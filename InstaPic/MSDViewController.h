@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <ApigeeiOSSDK/ApigeeClient.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface MSDViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface MSDViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (retain, nonatomic) CLLocationManager *manager;
+@property (retain, nonatomic) CLLocation *location;
 - (IBAction)takePicture:(id)sender;
 - (IBAction)selectPicture:(id)sender;
 - (IBAction)uploadPicture:(id)sender;

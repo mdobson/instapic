@@ -9,6 +9,9 @@
 #import "MSDViewController.h"
 #import "MSDSharedClient.h"
 #import <ApigeeiOSSDK/ApigeeDataClient.h>
+#import <ApigeeiOSSDK/ApigeeOpenUDID.h>
+#import <ApigeeiOSSDK/ApigeeActivity.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface MSDViewController ()
 
@@ -19,6 +22,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //snipe location quickly
+    self.manager = [[CLLocationManager alloc] init];
+    self.manager.delegate = self;
+    self.manager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.manager.distanceFilter = kCLDistanceFilterNone;
+    [self.manager startUpdatingLocation];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -46,7 +55,17 @@
 }
 
 - (IBAction)uploadPicture:(id)sender {
-    NSDictionary *data = @{@"type":@"assets", @"name":@"test.png", @"owner":@"95062f5a-ff60-11e2-b7d9-ad76f240f538", @"path":@"/test"};
+    self.location = [self.manager location];
+    [self.manager stopUpdatingLocation];
+    ApigeeUser *user = [[MSDSharedClient sharedClient] getLoggedInUser];
+    NSString *userUUID = [user getStringProperty:@"uuid"];
+    NSString *picUUID = [NSString stringWithFormat:@"%i", arc4random()];
+    NSString *picName = [NSString stringWithFormat:@"%@.png", picUUID];
+    NSString *picPath = [NSString stringWithFormat:@"/%@/%@", picUUID, picName];
+    NSString *activityContent = [NSString stringWithFormat:@"%@ uploaded a new pic!", user.username];
+    
+    NSDictionary *loc = @{@"latitude":[NSString stringWithFormat:@"%f",self.location.coordinate.latitude],@"longitude":[NSString stringWithFormat:@"%f",self.location.coordinate.longitude]};
+    NSDictionary *data = @{@"type":@"assets", @"name":picName, @"owner":userUUID, @"path":picPath, @"location":loc};
     [[MSDSharedClient sharedClient] createEntity:data completionHandler:^(ApigeeClientResponse* response){
         if(response.transactionState == kApigeeClientResponseSuccess) {
             NSDictionary *entity = response.response[@"entities"][0];
@@ -63,11 +82,41 @@
                 if (error) {
                     NSLog(@"%@", error.description);
                 } else {
+                    ApigeeActivity *activity = [[ApigeeActivity alloc] init];
+                    [activity setActorInfo:user.username
+                          actorDisplayName:user.username
+                                 actorUUID:userUUID];
+                    
+                    [activity setBasics:@"post"
+                               category:@"post"
+                                content:activityContent
+                                  title:@"Photo Post"];
+                    if ([activity isValid]) {
+                        [[MSDSharedClient sharedClient] postUserActivity:@"me"
+                                                                activity:activity
+                                                       completionHandler:^(ApigeeClientResponse *response){
+                                                           if (response.transactionState == kApigeeClientResponseSuccess) {
+                                                               UIAlertView * alert = [[UIAlertView alloc]
+                                                                                      initWithTitle:@"Sucess"
+                                                                                      message:@"Uploaded!"
+                                                                                      delegate:nil
+                                                                                      cancelButtonTitle:@"Close"
+                                                                                      otherButtonTitles:nil];
+                                                               [alert show];
+                                                           } else {
+                                                               NSLog(@"error");
+                                                           }
+                                                       }];
+                        
+                    } else {
+                        NSLog(@"invalid");
+                    }
                     NSLog(@"Good");
                 }
             }];
         } else {
             NSLog(@"failure");
+            NSLog(@"reason:%@", response.rawResponse);
         }
     }];
 }
