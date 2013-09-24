@@ -81,16 +81,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HkV-Jm-l5s">
-                                <rect key="frame" x="103" y="238" width="115" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Signup">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="signup:" destination="9ai-gU-Ks5" eventType="touchUpInside" id="JqB-fQ-gNr"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" id="WNr-Qg-DFX">
                                 <rect key="frame" x="77" y="111" width="166" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -108,14 +98,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="signup:" destination="9ai-gU-Ks5" eventType="editingDidEnd" id="8HH-hW-HNN"/>
-                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Signup" id="EX2-bO-oZC"/>
+                    <navigationItem key="navigationItem" title="Signup" id="EX2-bO-oZC">
+                        <barButtonItem key="rightBarButtonItem" title="start" id="tGh-xz-kNr">
+                            <connections>
+                                <action selector="signup:" destination="9ai-gU-Ks5" id="jgb-7d-Svi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="email" destination="6lT-M8-Rtf" id="h3k-On-wzM"/>
                         <outlet property="password" destination="8V7-iF-b2R" id="o0D-Oc-WES"/>

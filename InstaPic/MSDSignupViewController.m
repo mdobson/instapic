@@ -59,16 +59,16 @@
                                                                           connecteeID:deviceId
                                                                     completionHandler:^(ApigeeClientResponse *response){
                                                                         if (response.transactionState == kApigeeClientResponseSuccess) {
+                                                                            [MSDSharedClient saveUsername:username andPassword:password];
+                                                                            [self performSegueWithIdentifier:@"takePicture" sender:self];
                                                                             NSLog(@"registered");
                                                                         } else {
-                                                                            NSLog(@"error");
+                                                                            NSLog(@"error in connect");
                                                                         }
                                                                     }];
                                   }
-                                  [MSDSharedClient saveUsername:username andPassword:password];
-                                  [self performSegueWithIdentifier:@"takePicture" sender:self];
                               } else {
-                                  NSLog(@"error");
+                                  NSLog(@"%@. error signup", response.rawResponse);
                               }
                           }];
 }

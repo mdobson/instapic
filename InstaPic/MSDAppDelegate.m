@@ -8,6 +8,7 @@
 
 #import "MSDAppDelegate.h"
 #import "MSDSharedClient.h"
+#import "KeychainItemWrapper.h"
 
 @implementation MSDAppDelegate
 
@@ -17,6 +18,9 @@ static NSString *notifier = @"instapicdev";
 {
     // Override point for customization after application launch.
     [MSDSharedClient initWithOrg:@"mdobson" andApp:@"instapic-dev"];
+//Use this to reset keychain access.
+//    KeychainItemWrapper *wrap = [[KeychainItemWrapper alloc] initWithIdentifier:@"me.mdob.instapic" accessGroup:nil];
+//    [wrap resetKeychainItem];
     
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
                                                     UIRemoteNotificationTypeAlert|

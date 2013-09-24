@@ -31,7 +31,8 @@
     KeychainItemWrapper *wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:@"me.mdob.instapic" accessGroup:nil];
     NSString *username = [wrapper objectForKey:(__bridge id) kSecAttrAccount];
     NSString *password = [wrapper objectForKey:(__bridge id) kSecValueData];
-    if ( [username length] != 0 && [password length] != 0) {
+    NSLog(@"u:%@", username);
+    if ( [username length] != 0 && [password length] != 0 && username != nil && password != nil) {
         [self authenticate:password username:username];
     }
 	// Do any additional setup after loading the view.
@@ -51,7 +52,7 @@
                                     //This is the signing up users device.
                                     [self performSegueWithIdentifier:@"takePicture" sender:self];
                                 } else {
-                                    NSLog(@"error");
+                                    NSLog(@"error login");
                                 }
                             }];
 }
