@@ -11,13 +11,39 @@
 
 @implementation MSDAppDelegate
 
+static NSString *notifier = @"instapicdev";
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     [MSDSharedClient initWithOrg:@"mdobson" andApp:@"instapic-dev"];
+    
+    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
+                                                    UIRemoteNotificationTypeAlert|
+                                                    UIRemoteNotificationTypeSound];
+    
     return YES;
 }
-							
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    [[MSDSharedClient sharedClient] setDevicePushToken:deviceToken
+                                           forNotifier:notifier
+                                     completionHandler:^(ApigeeClientResponse *response){
+                                         if (response.transactionState != kApigeeClientResponseSuccess) {
+                                             NSLog(@"Registration failed.");
+                                         }
+                                     }];
+    
+}
+
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    if (application.applicationState == UIApplicationStateActive) {
+        NSString *message = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:message delegate:nil cancelButtonTitle:@"Close" otherButtonTitles: nil];
+        [alert show];
+    }
+}
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

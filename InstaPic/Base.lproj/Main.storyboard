@@ -125,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qfj-KU-fgY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-257" y="-1157"/>
+            <point key="canvasLocation" x="303" y="-637"/>
         </scene>
         <!--View Controller - Take a Picture-->
         <scene sceneID="ufC-wZ-h7g">
@@ -266,7 +266,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uP7-Ja-pe4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-128" y="1246"/>
+            <point key="canvasLocation" x="-332" y="1230"/>
         </scene>
         <!--Navigation Controller - Feed-->
         <scene sceneID="9Ml-QA-UuQ">

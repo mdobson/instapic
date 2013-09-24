@@ -13,5 +13,6 @@
 
 +(ApigeeDataClient *) sharedClient;
 +(void)initWithOrg:(NSString*)organization andApp:(NSString*)application;
++(void)saveUsername:(NSString*)username andPassword:(NSString*)password;
 
 @end

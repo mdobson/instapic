@@ -8,6 +8,7 @@
 
 #import "MSDSharedClient.h"
 #import <ApigeeiOSSDK/ApigeeClient.h>
+#import "KeychainItemWrapper.h"
 
 @implementation MSDSharedClient
 
@@ -25,4 +26,9 @@ static NSString *app;
     return [client dataClient];
 }
 
++(void)saveUsername:(NSString *)username andPassword:(NSString *)password {
+    KeychainItemWrapper *wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:@"me.mdob.instapic" accessGroup:nil];
+    [wrapper setObject:username forKey:(__bridge id)kSecAttrAccount];
+    [wrapper setObject:password forKey:(__bridge id)kSecValueData];
+}
 @end

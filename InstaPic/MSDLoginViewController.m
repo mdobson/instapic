@@ -8,6 +8,7 @@
 
 #import "MSDLoginViewController.h"
 #import "MSDSharedClient.h"
+#import "KeychainItemWrapper.h"
 
 @interface MSDLoginViewController ()
 
@@ -27,6 +28,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    KeychainItemWrapper *wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:@"me.mdob.instapic" accessGroup:nil];
+    NSString *username = [wrapper objectForKey:(__bridge id) kSecAttrAccount];
+    NSString *password = [wrapper objectForKey:(__bridge id) kSecValueData];
+    if ( [username length] != 0 && [password length] != 0) {
+        [self authenticate:password username:username];
+    }
 	// Do any additional setup after loading the view.
 }
 
@@ -36,18 +43,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)login:(id)sender {
-    NSString *username = self.username.text;
-    NSString *password = self.password.text;
-    
+- (void)authenticate:(NSString *)password username:(NSString *)username {
     [[MSDSharedClient sharedClient] logInUser:username
                                      password:password
                             completionHandler:^(ApigeeClientResponse*response){
                                 if (response.transactionState == kApigeeClientResponseSuccess) {
+                                    //This is the signing up users device.
                                     [self performSegueWithIdentifier:@"takePicture" sender:self];
                                 } else {
                                     NSLog(@"error");
                                 }
                             }];
+}
+
+- (IBAction)login:(id)sender {
+    NSString *username = self.username.text;
+    NSString *password = self.password.text;
+    [MSDSharedClient saveUsername:username andPassword:password];
+    [self authenticate:password username:username];
 }
 @end

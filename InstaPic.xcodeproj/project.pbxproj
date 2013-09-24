@@ -27,6 +27,7 @@
 		635F985F17EE6113003BD1EE /* MSDFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 635F985E17EE6113003BD1EE /* MSDFeedViewController.m */; };
 		635F986217EE6123003BD1EE /* MSDNearMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 635F986117EE6123003BD1EE /* MSDNearMeViewController.m */; };
 		635F986517EE6769003BD1EE /* MSDFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 635F986417EE6769003BD1EE /* MSDFollowViewController.m */; };
+		63AF2B4F17F11730003A3FAE /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AF2B4E17F11730003A3FAE /* KeychainItemWrapper.m */; };
 		63D39F8E17EE2C5500406966 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D39F8A17EE2C5500406966 /* CoreLocation.framework */; };
 		63D39F8F17EE2C5500406966 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D39F8B17EE2C5500406966 /* CoreTelephony.framework */; };
 		63D39F9017EE2C5500406966 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D39F8C17EE2C5500406966 /* Security.framework */; };
@@ -45,7 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		633D551017EE1AF50068B876 /* InstaPic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaPic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		633D551017EE1AF50068B876 /* instapic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instapic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		633D551317EE1AF50068B876 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		633D551517EE1AF50068B876 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		633D551717EE1AF50068B876 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -76,6 +77,8 @@
 		635F986117EE6123003BD1EE /* MSDNearMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDNearMeViewController.m; sourceTree = "<group>"; };
 		635F986317EE6769003BD1EE /* MSDFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDFollowViewController.h; sourceTree = "<group>"; };
 		635F986417EE6769003BD1EE /* MSDFollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDFollowViewController.m; sourceTree = "<group>"; };
+		63AF2B4D17F11730003A3FAE /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		63AF2B4E17F11730003A3FAE /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		63D39F8A17EE2C5500406966 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		63D39F8B17EE2C5500406966 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		63D39F8C17EE2C5500406966 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -125,7 +128,7 @@
 		633D551117EE1AF50068B876 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				633D551017EE1AF50068B876 /* InstaPic.app */,
+				633D551017EE1AF50068B876 /* instapic.app */,
 				633D553117EE1AF50068B876 /* InstaPicTests.xctest */,
 			);
 			name = Products;
@@ -152,6 +155,8 @@
 			children = (
 				633D552217EE1AF50068B876 /* MSDAppDelegate.h */,
 				633D552317EE1AF50068B876 /* MSDAppDelegate.m */,
+				63AF2B4D17F11730003A3FAE /* KeychainItemWrapper.h */,
+				63AF2B4E17F11730003A3FAE /* KeychainItemWrapper.m */,
 				633D552517EE1AF50068B876 /* Main.storyboard */,
 				633D552817EE1AF50068B876 /* MSDViewController.h */,
 				633D552917EE1AF50068B876 /* MSDViewController.m */,
@@ -219,7 +224,7 @@
 			);
 			name = InstaPic;
 			productName = InstaPic;
-			productReference = 633D551017EE1AF50068B876 /* InstaPic.app */;
+			productReference = 633D551017EE1AF50068B876 /* instapic.app */;
 			productType = "com.apple.product-type.application";
 		};
 		633D553017EE1AF50068B876 /* InstaPicTests */ = {
@@ -308,6 +313,7 @@
 				633D552A17EE1AF50068B876 /* MSDViewController.m in Sources */,
 				635F985F17EE6113003BD1EE /* MSDFeedViewController.m in Sources */,
 				6354AF2A17EE419B00E18DDB /* MSDLoginViewController.m in Sources */,
+				63AF2B4F17F11730003A3FAE /* KeychainItemWrapper.m in Sources */,
 				635F986217EE6123003BD1EE /* MSDNearMeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +441,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Dobson (LFT8494QFW)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ApigeeCorporation/usergridapps/InstaPic,
@@ -446,7 +453,8 @@
 					"-all_load",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = instapic;
+				PROVISIONING_PROFILE = "026800CC-6A39-4903-9ABA-EA54626FD115";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -456,6 +464,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Dobson (LFT8494QFW)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ApigeeCorporation/usergridapps/InstaPic,
@@ -467,7 +476,8 @@
 					"-all_load",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = instapic;
+				PROVISIONING_PROFILE = "026800CC-6A39-4903-9ABA-EA54626FD115";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
